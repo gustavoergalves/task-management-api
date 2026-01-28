@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Task\CreateTaskController;
 use App\Http\Controllers\Task\DeleteTaskController;
+use App\Http\Controllers\Task\FindByIdTaskController;
 use App\Http\Controllers\Task\GetTaskStatisticsController;
 use App\Http\Controllers\Task\ListTasksController;
-use App\Http\Controllers\Task\FindByIdTaskController;
 use App\Http\Controllers\Task\UpdateTaskController;
 use Illuminate\Support\Facades\Route;
 

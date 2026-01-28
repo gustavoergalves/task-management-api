@@ -9,9 +9,7 @@ use App\Repositories\Contracts\TaskRepositoryInterface;
 
 class GetTaskStatisticsService
 {
-    public function __construct(private readonly TaskRepositoryInterface $taskRepository)
-    {
-    }
+    public function __construct(private readonly TaskRepositoryInterface $taskRepository) {}
 
     public function __invoke(): TaskStatisticsData
     {

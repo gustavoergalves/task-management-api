@@ -10,9 +10,7 @@ use App\Repositories\Contracts\TaskRepositoryInterface;
 
 class UpdateTaskService
 {
-    public function __construct(private readonly TaskRepositoryInterface $taskRepository)
-    {
-    }
+    public function __construct(private readonly TaskRepositoryInterface $taskRepository) {}
 
     /**
      * @throws TaskNotFoundException

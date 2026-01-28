@@ -11,9 +11,7 @@ use Illuminate\Http\Response;
 
 class GetTaskStatisticsController extends Controller
 {
-    public function __construct(private readonly GetTaskStatisticsService $service)
-    {
-    }
+    public function __construct(private readonly GetTaskStatisticsService $service) {}
 
     public function __invoke(): JsonResponse
     {

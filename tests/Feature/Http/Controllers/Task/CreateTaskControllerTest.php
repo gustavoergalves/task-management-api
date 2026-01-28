@@ -25,8 +25,7 @@ class CreateTaskControllerTest extends TestCase
         $response = $this->postJson('/api/tasks', $payload);
         $response
             ->assertCreated()
-            ->assertJson(fn(AssertableJson $json)
-                => $json
+            ->assertJson(fn (AssertableJson $json) => $json
                 ->has('data')
                 ->where('data.title', $payload['title'])
                 ->where('data.description', $payload['description'])

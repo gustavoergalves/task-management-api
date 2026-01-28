@@ -14,9 +14,7 @@ use Illuminate\Http\Response;
 
 class ListTasksController extends Controller
 {
-    public function __construct(private readonly ListTasksService $listTasksService)
-    {
-    }
+    public function __construct(private readonly ListTasksService $listTasksService) {}
 
     public function __invoke(ListTaskRequest $request): JsonResponse
     {

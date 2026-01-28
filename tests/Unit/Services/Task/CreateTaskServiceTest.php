@@ -16,6 +16,7 @@ use Tests\TestCase;
 class CreateTaskServiceTest extends TestCase
 {
     private TaskRepositoryInterface&MockInterface $taskRepository;
+
     private CreateTaskService $service;
 
     protected function setUp(): void

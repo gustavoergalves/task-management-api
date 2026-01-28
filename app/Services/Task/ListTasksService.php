@@ -9,13 +9,11 @@ use App\Data\Task\TaskData;
 use App\Data\Task\TaskFilterData;
 use App\Models\Task;
 use App\Repositories\Contracts\TaskRepositoryInterface;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class ListTasksService
 {
-    public function __construct(private readonly TaskRepositoryInterface $taskRepository)
-    {
-    }
+    public function __construct(private readonly TaskRepositoryInterface $taskRepository) {}
 
     public function __invoke(TaskFilterData $filters, PaginationParamsData $pagination): LengthAwarePaginator
     {
@@ -24,7 +22,10 @@ class ListTasksService
             pagination: $pagination,
         );
 
-        $tasks->getCollection()->transform(fn(Task $task) => TaskData::fromModel($task));
+        /** @var \Illuminate\Pagination\LengthAwarePaginator $tasks */
+        $tasks->setCollection(
+            $tasks->getCollection()->map(fn (Task $task) => TaskData::fromModel($task))
+        );
 
         return $tasks;
     }

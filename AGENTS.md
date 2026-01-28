@@ -17,6 +17,11 @@ This project runs entirely in Docker containers. All commands should be executed
 - `make migrate_rollback` - Rollback last migration batch
 - `make migration` - Create new migration (interactive)
 - `make clear_caches` - Clear Laravel caches (cache, config, route)
+- `make lint` - Fix code style issues with Laravel Pint
+- `make lint_check` - Check code style without fixing
+- `make stan` - Run PHPStan static analysis
+- `make audit` - Check for security vulnerabilities
+- `make code_review` - Run all code review checks (lint, stan, audit, tests)
 
 API is available at: `http://localhost:8080`
 Database runs on PostgreSQL (port 5432 externally, configurable via `.env`)
