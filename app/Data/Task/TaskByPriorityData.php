@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Data\Task;
 
-use App\Enums\TaskPriorityEnum;
 use Spatie\LaravelData\Data;
 
 class TaskByPriorityData extends Data
@@ -13,8 +12,7 @@ class TaskByPriorityData extends Data
         public int $low,
         public int $medium,
         public int $high,
-    ) {
-    }
+    ) {}
 
     public static function fromObject(object $statisticsObject): self
     {

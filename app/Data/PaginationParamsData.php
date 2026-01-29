@@ -15,14 +15,13 @@ class PaginationParamsData extends Data
         public int $currentPage = 1,
         public string $sortBy = 'created_at',
         public string $sortDirection = 'asc',
-    ) {
-    }
+    ) {}
 
     public static function fromRequest(FormRequest|Request $request): self
     {
         return new self(
-            itemsPerPage: (int)$request->query('itemsPerPage', 10),
-            currentPage: (int)$request->query('page', 1),
+            itemsPerPage: (int) $request->query('itemsPerPage', 10),
+            currentPage: (int) $request->query('page', 1),
             sortBy: $request->query('sortBy', 'created_at'),
             sortDirection: $request->query('sortDirection', 'asc'),
         );

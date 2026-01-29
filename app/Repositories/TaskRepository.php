@@ -40,8 +40,8 @@ class TaskRepository implements TaskRepositoryInterface
         /** @var Task|null $task */
         $task = Task::query()->find($id);
 
-        if (!$task) {
-            throw new TaskNotFoundException("Task not found");
+        if (! $task) {
+            throw new TaskNotFoundException('Task not found');
         }
 
         return $task;

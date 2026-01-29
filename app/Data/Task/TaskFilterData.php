@@ -12,8 +12,7 @@ class TaskFilterData
     public function __construct(
         public ?string $status,
         public ?string $priority,
-    ) {
-    }
+    ) {}
 
     public static function fromRequest(FormRequest|Request $request): self
     {

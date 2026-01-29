@@ -34,3 +34,23 @@ clear_caches:
 
 test:
 	docker-compose exec app php artisan test
+
+lint:
+	docker-compose exec app ./vendor/bin/pint
+
+lint_check:
+	docker-compose exec app ./vendor/bin/pint --test
+
+stan:
+	docker-compose exec app ./vendor/bin/phpstan analyse --memory-limit=256M
+
+audit:
+	docker-compose exec app composer audit
+
+code_review:
+	@echo "Running code review checks..."
+	@make lint_check
+	@make stan
+	@make audit
+	@make test
+	@echo "✅ All code review checks passed!"

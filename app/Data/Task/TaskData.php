@@ -19,8 +19,7 @@ class TaskData extends Data
         public TaskStatusEnum $status,
         public TaskPriorityEnum $priority,
         public ?string $dueDate = null,
-    ) {
-    }
+    ) {}
 
     public static function fromModel(Task $task): self
     {

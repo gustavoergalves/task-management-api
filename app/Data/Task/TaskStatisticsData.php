@@ -12,10 +12,10 @@ class TaskStatisticsData extends Data
         public int $totalTasks,
         public TaskByStatusData $byStatus,
         public TaskByPriorityData $byPriority,
-    ) {
-    }
+    ) {}
 
-    public static function fromObject(object $statisticsObject): self {
+    public static function fromObject(object $statisticsObject): self
+    {
         return new self(
             totalTasks: $statisticsObject->totalTasks,
             byStatus: TaskByStatusData::fromObject($statisticsObject),

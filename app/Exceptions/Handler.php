@@ -40,7 +40,7 @@ class Handler extends ExceptionHandler
                     'code' => 'VALIDATION_ERROR',
                     'message' => 'Validation failed',
                     'details' => $e->errors(),
-                ]
+                ],
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
                     'code' => 'RESOURCE_NOT_FOUND',
                     'message' => 'Resource not found',
                     'details' => null,
-                ]
+                ],
             ], Response::HTTP_NOT_FOUND);
         }
 
@@ -60,7 +60,7 @@ class Handler extends ExceptionHandler
                     'code' => 'HTTP_ERROR',
                     'message' => $e->getMessage() ?: 'Request failed',
                     'details' => null,
-                ]
+                ],
             ], $e->getStatusCode());
         }
 
@@ -71,7 +71,7 @@ class Handler extends ExceptionHandler
                     ? 'Something went wrong. Please try again later.'
                     : $e->getMessage(),
                 'details' => null,
-            ]
+            ],
         ], Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }
