@@ -74,15 +74,3 @@ jobs:
           DB_USERNAME: postgres
           DB_PASSWORD: postgres
         run: php artisan test
-
-      - name: Comment PR with Results
-        if: failure() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '❌ **Automated Code Review Failed**\n\nPlease check the workflow logs for details on what needs to be fixed.'
-            })
