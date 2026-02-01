@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Enums\TaskPriorityEnum;
 use App\Enums\TaskStatusEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -36,4 +37,9 @@ class Task extends Model
         'priority' => TaskPriorityEnum::class,
         'due_date' => 'date',
     ];
+
+    public function employees(): BelongsToMany
+    {
+        return $this->belongsToMany(Employee::class, 'employee_task')->withTimestamps();
+    }
 }
